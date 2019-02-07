@@ -2,7 +2,15 @@
 
 <div>
 <h4>historic of messages go here!</h4>
+
+<ul>
+  <% bottles.forEach((bottle) => { %>
+  <li><%= bottle.content %></li>
+  <% }) %>  
+</ul>
+
 </div>
+
 
 <form action="/bottles/answer" method="post">
   <div class="form-row">

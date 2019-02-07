@@ -27,7 +27,23 @@ router.post('/' , (req, res, next) => {
 })
 
 router.get('/answer', (req, res, next) => {
-  res.render('bottles/answer')
+  const thread = res.locals.currentThread;
+  const randomThread = Math.floor(Math.random() * thread)+1;
+  Bottle.find({thread:randomThread}).sort({date: -1})
+    .then((bottles) => {
+      console.log('current thread: ', bottles[0].content);
+      res.render('bottles/answer', { bottles });
+      next()
+    })
+    .catch(next)
 });
+
+
+// router.post('/answer', (req, res, next) => {
+
+  
+// })
+
+
 
 module.exports = router;
