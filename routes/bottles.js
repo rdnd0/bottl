@@ -1,6 +1,6 @@
 const express = require('express');
-const Product = require('../models/bottle');
-const Review = require('../models/user');
+const Bottle = require('../models/bottle');
+const User = require('../models/user');
 
 const router = express.Router();
 
@@ -11,6 +11,16 @@ router.get( '/', (req, res, next) => {
 router.get('/new', (req, res, next) => {
   res.render('bottles/new')
 });
+
+router.post('/' , (req,res,next) => {
+  const { message } = req.body;
+  const username = req.session.currentUser.username;
+
+  console.log(message);
+  console.log(username);
+
+
+})
 
 router.get('/answer', (req, res, next) => {
   res.render('bottles/answer')
