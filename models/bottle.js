@@ -4,10 +4,11 @@ const Schema = mongoose.Schema;
 const { ObjectId } = Schema.Types;
 
 const bottleSchema = new Schema({
-  sender: {
+  senderId: {
     type: ObjectId, 
     ref: 'User',
   },
+  sender: String,
   content: String,
   thread: Number,
   date: {type: Date,

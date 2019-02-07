@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const protectedView = require('./middlewares/protectedView');
 
+const Bottle = require('./models/bottle');
 
 // Set up mongoose and Mongo connection
 
@@ -44,17 +45,28 @@ app.use(session({
     maxAge: 24 * 60 * 60 * 1000,
   },
 }));
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
 
 // Set up current user middleware. Makes the currentUser available in every page
-
 app.use((req, res, next) => {
   app.locals.currentUser = req.session.currentUser;
   next();
 });
+app.use((req, res, next) => {
+  Bottle.find().sort({thread: -1}).limit(1)
+    .then((message) => {
+      console.log('current bottle thread ', message[0].thread);
+      res.locals.currentThread = message[0].thread;
+      next();
+    })
+    .catch((error) => {
+      next(error);
+    })
+})
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());

@@ -12,14 +12,18 @@ router.get('/new', (req, res, next) => {
   res.render('bottles/new')
 });
 
-router.post('/' , (req,res,next) => {
-  const { message } = req.body;
-  const username = req.session.currentUser.username;
+router.post('/' , (req, res, next) => {
+  const { content } = req.body;
+  const { username: { sender } } = req.session.currentUser;  
+  const senderId = req.session.currentUser._id;
+  console.log('el thread actual es', res.locals.currentThread)
+  const thread = res.locals.currentThread + 1;
 
-  console.log(message);
-  console.log(username);
-
-
+  Bottle.create( {senderId, sender, content, thread})
+    .then( ()=> {
+      res.redirect('/bottles');
+    })
+    .catch(next);
 })
 
 router.get('/answer', (req, res, next) => {
