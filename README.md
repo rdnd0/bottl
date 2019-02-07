@@ -12,7 +12,7 @@ You are in a desert island and the only way to communicate is through bottles, s
 - **sign up** - As a user I want to sign up on the webpage so that I can see the bottles I can write or respond too
 - **login** - As a user I want to be able to log in on the webpage so that I can get back to my account
 - **logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
-- **message types** - As a user I want to choose if I want to respond to an existing bottle, create a new one or to respond to one existing of mine
+- **message types** - As a user I want to choose if I want to respond to an existing bottle or create a new one
 - **message create** - As a user I want to create a message so that other people can respond 
 - **message respond** - As a user I want to respond to messages from other people 
 
@@ -34,15 +34,7 @@ Messages
 
 |Method|URL|Description|
 |------|---|-----------|
-|GET|/|Renders the homepage|
-|GET|/auth sing up|redirects to / if user logged in, renders the sing up form (with flash msg)|
-|POST|/auth/singup|redirects to / if user logged in.| body:
-    - username
-    - email
-    - password
-
-| | | |
-|------|---|-----------|
+|GET|/|Renders the Login page|
 |GET|/auth/login|redirects to / if user logged in, renders the login form (with flash msg)|
 |POST|/auth/login|redirects to / if user logged in. ```
 ```
@@ -50,28 +42,51 @@ body:
     - username
     - email
 ```
+
+
+| | | |
+|------|---|-----------|
+|GET|/auth/singup|redirects to / if user logged in, renders the sing up form (with flash msg)|
+|POST|/auth/singup|redirects to / if user logged in.| body:
+    - username
+    - email
+    - password
+
 | | | |
 |------|---|-----------|
 |POST|/auth/logout|(empty)|
-|GET|/messages|renders the main page to decide what to do next (answer message/create new one)
-|POST|/messages/create|redirects to / if user is anonymous.
-```
-body: 
-    - message text
-```
+
 | | | |
 |------|---|-----------|
-|POST|/messages/respond|redirects to / if user is anonymous.
+|GET|/bottles|renders the main page to decide what to do next (answer bottle/create new one)
+
+| | | |
+|------|---|-----------|
+|GET|/bottles/new|renders page to write new message
+
+| | | |
+|------|---|-----------|
+|POST|/bottles/new|redirects to /bottles
 ```
 body:
-    - message text
+    - sender ID
+    - timestamp
+    - content
+    - thread
 ```
 | | | |
 |------|---|-----------|
-|POST|/messages/respondown|redirects to / if user is anonymous.
+|GET|/bottles/:id/answer|renders page to respond to existing messages
+
+| | | |
+|------|---|-----------|
+|POST|/bottles/:id/answer|redirects to /bottles
 ```
 body: 
-    - message text
+    - sender ID
+    - timestamp
+    - content
+    - thread
 ```
 
 ## Models
@@ -81,15 +96,16 @@ User model
 ```
 username: String
 password: String
+email: String
 ```
 
 Message model
 
 ```
-owner: ObjectId<User>
-answered: Boolean
-linkedmessages: []
-text: String
+sender: ObjectId<User>
+receiver : ObjectId<User>
+content: String
+thread: ObjectId
 creation-date: Date
 ``` 
 
