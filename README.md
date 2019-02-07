@@ -103,7 +103,6 @@ Message model
 
 ```
 sender: ObjectId<User>
-receiver : ObjectId<User>
 content: String
 thread: ObjectId
 creation-date: Date

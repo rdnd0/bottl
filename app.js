@@ -13,7 +13,7 @@ const protectedView = require('./middlewares/protectedView');
 // Set up mongoose and Mongo connection
 
 mongoose
-  .connect('mongodb://localhost/XXXXXXXXXXXXX', { useNewUrlParser: true })
+  .connect('mongodb://localhost/bottl', { useNewUrlParser: true })
   .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
@@ -26,6 +26,7 @@ mongoose
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const bottlesRouter = require('./routes/bottles');
 
 const app = express();
 
@@ -70,6 +71,7 @@ app.set('layout', 'layouts/layout');
 
 app.use('/', indexRouter);
 app.use('/users', protectedView, usersRouter);
+app.use('/bottles', bottlesRouter);
 app.use('/', authRouter);
 
 // catch 404 and forward to error handler
