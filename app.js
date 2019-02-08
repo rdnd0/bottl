@@ -7,7 +7,6 @@ const session = require('express-session');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
-const protectedView = require('./middlewares/protectedView');
 
 const Bottle = require('./models/bottle');
 
@@ -25,7 +24,6 @@ mongoose
 // Connect routers
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const bottlesRouter = require('./routes/bottles');
 
@@ -81,9 +79,8 @@ app.set('layout', 'layouts/layout');
 
 
 app.use('/', indexRouter);
-app.use('/users', protectedView, usersRouter);
-app.use('/bottles', bottlesRouter);
 app.use('/', authRouter);
+app.use('/bottles', bottlesRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

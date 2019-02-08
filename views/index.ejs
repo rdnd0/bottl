@@ -3,7 +3,13 @@
 <p>Explanation about how it works</p>
 <img src="https://freeiconshop.com/wp-content/uploads/edd/bottle-flat.png" alt="bottle">
 <div> 
+<% if (!currentUser) {%>
 <a href="login">Login</a>
 <a href="signup">Signup</a>
+<%} else { %>
+<a href="logout">Logout</a>
+<%}%>
+
+
 </div>
 <p>Made with love at IronHack</p>

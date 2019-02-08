@@ -3,13 +3,14 @@ const bcrypt = require('bcrypt');
 
 const router = express.Router();
 const User = require('../models/user');
+const protect = require('../middlewares/protectedView')
 
 // BCrypt to encrypt passwords
 const bcryptSalt = 10;
 
 // GET signup page
 
-router.get('/signup', (req, res, next) => {
+router.get('/signup', protect.loggedIn, (req, res, next) => {
   const errorMessage = undefined;
   res.render('auth/signup', { errorMessage });
 });
@@ -46,7 +47,7 @@ router.post('/signup', (req, res, next) => {
 
 // GET login page
 
-router.get('/login', (req, res, next) => {
+router.get('/login', protect.loggedIn, (req, res, next) => {
   const errorMessage = undefined;
   res.render('auth/login', { errorMessage });
 });
