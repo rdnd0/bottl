@@ -58,7 +58,6 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
   Bottle.find().sort({thread: -1}).limit(1)
     .then((message) => {
-      console.log('current bottle thread ', message[0].thread);
       res.locals.currentThread = message[0].thread;
       next();
     })

@@ -31,18 +31,18 @@ router.get('/answer', (req, res, next) => {
   const randomThread = Math.floor(Math.random() * thread)+1;
   Bottle.find({thread:randomThread}).sort({date: -1})
     .then((bottles) => {
-      console.log('current thread: ', bottles[0].content);
       res.render('bottles/answer', { bottles });
-      next()
     })
     .catch(next)
 });
 
 
-// router.post('/answer', (req, res, next) => {
-
+router.post('/answer', (req, res, next) => {
+  const {thread} = req.body;
+  console.log('this is the current thread ', thread);
   
-// })
+  
+})
 
 
 
