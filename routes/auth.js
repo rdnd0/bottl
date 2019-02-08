@@ -86,6 +86,12 @@ router.post('/login', (req, res, next) => {
     .catch(next);
 });
 
+// GET instructions
+
+router.get('/instructions', (req,res,next) => {
+  res.render('./instructions');
+})
+
 // GET logout from session
 
 router.get('/logout', (req, res, next) => {
