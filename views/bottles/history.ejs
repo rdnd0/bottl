@@ -1,0 +1,10 @@
+<h2>Where have your bottles been?</h2>
+
+<ul>
+  <% bottles.forEach((bottle) => { %>
+  <a href="/bottles/history/<%= bottle.thread %>"><%= bottle.content %></a>
+  <% }) %>  
+</ul>
+
+<div><a href="/bottles">Back</a></div>
+<a href="/logout">Logout</a>

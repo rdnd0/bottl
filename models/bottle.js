@@ -13,6 +13,10 @@ const bottleSchema = new Schema({
   thread: Number,
   date: {type: Date,
   default: Date.now()},
+  isFirstMessage : {
+    type: Boolean,
+    default: false,
+  }
 
 });
 
