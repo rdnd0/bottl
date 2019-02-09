@@ -7,8 +7,11 @@ const session = require('express-session');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash');
 
 const Bottle = require('./models/bottle');
+
+const notifications = require('./middlewares/notifications');
 
 // Set up mongoose and Mongo connection
 
@@ -43,6 +46,9 @@ app.use(session({
     maxAge: 24 * 60 * 60 * 1000,
   },
 }));
+
+app.use(flash());
+app.use(notifications);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

@@ -10,3 +10,19 @@ a {
 .img {
   height: 8rem;
 }
+
+.alert {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.alert-danger {
+  background-color: rgb(255, 167, 151);
+  color: rgb(187, 0, 0);
+}
+
+.alert-success {
+  background-color: rgb(172, 255, 151);
+  color: black;
+}

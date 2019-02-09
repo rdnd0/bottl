@@ -35,6 +35,7 @@ router.post('/', protect.notLoggedIn, (req, res, next) => {
       isFirstMessage
     })
     .then(() => {
+      req.flash('success', 'that bottle is now sailing away!');
       res.redirect('/bottles');
     })
     .catch(next);
@@ -80,6 +81,7 @@ router.post('/answer', protect.notLoggedIn, (req, res, next) => {
       thread
     })
     .then(() => {
+      req.flash('success', 'you answered that bottle, right on!');
       res.redirect('/bottles');
     })
     .catch(next);

@@ -21,7 +21,8 @@ router.post('/signup', (req, res, next) => {
   const { username, password } = req.body;
 
   if (username === '' || password === '') {
-    res.render('auth/signup', { errorMessage: 'empty fields' });
+    req.flash('error', 'dude, empty fields but why?');
+    res.redirect('/signup');
   } else {
     User.findOne({ username })
       .then((user) => {
@@ -30,13 +31,15 @@ router.post('/signup', (req, res, next) => {
           const hashPass = bcrypt.hashSync(password, salt);
           User.create({ username, password: hashPass })
             .then(() => {
-              res.redirect('/');
+              req.flash('success', 'castaway created correctly');
+              res.redirect('/bottles');
             })
             .catch((error) => {
               next(error);
             });
         } else {
-          res.render('auth/signup', { errorMessage: 'incorrect' });
+          req.flash('error', 'incorrect');
+          res.redirect('/signup');
         }
       })
       .catch((error) => {
@@ -59,29 +62,27 @@ router.post('/login', (req, res, next) => {
 
   // Control the user inserts values
   if (username === '' || password === '') {
-    res.render('auth/signup', {
-      errorMessage: 'Indicate a username and a password to sign up',
-    });
+    req.flash('error', 'empty fields, you can do better than that');
+    res.redirect('/login');
     return;
   }
 
   User.findOne({ username })
     .then((user) => {
       if (!user) {
-        res.render('auth/login', {
-          errorMessage: 'The username doesn\'t exist',
-        });
+        req.flash('error', 'incorrect user name, you can do better than that');
+        res.redirect('/login');
         return;
       }
       if (bcrypt.compareSync(password, user.password)) {
         // Save the login in the session!
         req.session.currentUser = user;
+        req.flash('success', 'you are in sailor');
         res.redirect('/bottles');
       } else {
-        res.render('auth/login', {
-          errorMessage: 'Incorrect password',
-        });
-      }
+        req.flash('error', 'incorrect username or password');
+        res.redirect('/login');
+        }
     })
     .catch(next);
 });
