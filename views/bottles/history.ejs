@@ -1,10 +1,14 @@
-<h2>Where have your bottles been?</h2>
 
-<ul>
+<div class="container"> 
+<h3>Where have your bottles been?</h3>
+<div class="msg-box login">
   <% bottles.forEach((bottle) => { %>
   <a href="/bottles/history/<%= bottle.thread %>"><%= bottle.content %></a>
   <% }) %>  
-</ul>
+  </div>
 
-<div><a href="/bottles">Back</a></div>
-<a href="/logout">Logout</a>
+<div class="history">
+  <div class="arrow-left "><a href="/bottles">AAA</a></div>
+  <p><a href="logout"><img src="/images/exit.png" class="img-exit" alt="exit"></a></p>
+  </div>
+</div>

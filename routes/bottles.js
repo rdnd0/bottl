@@ -17,13 +17,9 @@ router.post('/', protect.notLoggedIn, (req, res, next) => {
   const {
     content
   } = req.body;
-  const {
-    username: {
-      sender
-    }
-  } = req.session.currentUser;
+  const sender = req.session.currentUser.username;
   const senderId = req.session.currentUser._id;
-  console.log('el new thread actual es', res.locals.currentThread)
+  console.log('el user actual es', sender)
   const thread = res.locals.currentThread + 1;
   const isFirstMessage = true;
 
@@ -65,11 +61,7 @@ router.post('/answer', protect.notLoggedIn, (req, res, next) => {
   const {
     content
   } = req.body;
-  const {
-    username: {
-      sender
-    }
-  } = req.session.currentUser;
+  const sender = req.session.currentUser.username;
   const senderId = req.session.currentUser._id;
   console.log('el answer thread actual es', res.locals.currentThread)
   const thread = currentThread;
