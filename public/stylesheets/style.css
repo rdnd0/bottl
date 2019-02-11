@@ -26,6 +26,13 @@ h1{
   padding: 0;
 }
 
+footer{
+  position: absolute;
+  margin-bottom: 1px;
+  display: flex;
+  align-items: flex-end;
+}
+
 .container{
   display: flex;
   flex-direction: column;
