@@ -12,24 +12,34 @@ const bcryptSalt = 10;
 
 router.get('/signup', protect.loggedIn, (req, res, next) => {
   const errorMessage = undefined;
-  res.render('auth/signup', { errorMessage });
+  res.render('auth/signup', {
+    errorMessage
+  });
 });
 
 // POST signup/create new user
 
 router.post('/signup', (req, res, next) => {
-  const { username, password } = req.body;
+  const {
+    username,
+    password
+  } = req.body;
 
   if (username === '' || password === '') {
     req.flash('error', 'dude, empty fields but why?');
     res.redirect('/signup');
   } else {
-    User.findOne({ username })
+    User.findOne({
+        username
+      })
       .then((user) => {
         if (!user) {
           const salt = bcrypt.genSaltSync(bcryptSalt);
           const hashPass = bcrypt.hashSync(password, salt);
-          User.create({ username, password: hashPass })
+          User.create({
+              username,
+              password: hashPass
+            })
             .then(() => {
               req.flash('success', 'castaway created correctly');
               res.redirect('/bottles');
@@ -52,13 +62,18 @@ router.post('/signup', (req, res, next) => {
 
 router.get('/login', protect.loggedIn, (req, res, next) => {
   const errorMessage = undefined;
-  res.render('auth/login', { errorMessage });
+  res.render('auth/login', {
+    errorMessage
+  });
 });
 
 // POST insert login data from user
 
 router.post('/login', (req, res, next) => {
-  const { username, password } = req.body;
+  const {
+    username,
+    password
+  } = req.body;
 
   // Control the user inserts values
   if (username === '' || password === '') {
@@ -67,7 +82,9 @@ router.post('/login', (req, res, next) => {
     return;
   }
 
-  User.findOne({ username })
+  User.findOne({
+      username
+    })
     .then((user) => {
       if (!user) {
         req.flash('error', 'incorrect user name, you can do better than that');
@@ -82,14 +99,14 @@ router.post('/login', (req, res, next) => {
       } else {
         req.flash('error', 'incorrect username or password');
         res.redirect('/login');
-        }
+      }
     })
     .catch(next);
 });
 
 // GET instructions
 
-router.get('/instructions', (req,res,next) => {
+router.get('/instructions', (req, res, next) => {
   res.render('./instructions');
 })
 

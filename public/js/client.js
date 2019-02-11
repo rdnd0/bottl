@@ -3,6 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (flashMessage) {
     setTimeout(()=> {
       flashMessage.style.display = 'none';
-    }, 2000);
+    }, 3000);
   }
 });

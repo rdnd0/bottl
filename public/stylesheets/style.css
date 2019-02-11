@@ -9,9 +9,9 @@ html {
 }
 
 body {
-  margin: 3rem;
   padding: 0;
-  font: 14px "Roboto", Helvetica, Arial, sans-serif;
+  margin: 0;
+  font: 16px "Roboto", Helvetica, Arial, sans-serif;
 }
 
 
@@ -26,22 +26,130 @@ h1{
   padding: 0;
 }
 
+h2{
+  font-family: 'Bahiana', cursive;
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+h3{
+  font-family: 'Bahiana', cursive;
+  font-size: 2.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-login{
+  background-color: #35d0ba;
+  padding: 0.7rem 2rem;
+  border-radius: 20px;
+  color: white;
+  width: 100%;
+  font-weight: bolder;
+  border: 0;
+  text-decoration: none;
+  text-align: center;
+  align-self: center;
+  font-size: 1.1rem;
+
+}
+
+.btns-box{
+display: grid;
+grid-template-rows: 40px 20px;
+grid-row-gap: 0.5rem;
+grid-template-columns: 200px;
+}
+
+.btns-secondary{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+}
+
+.bottle-main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottle-main a{
+ text-align: center;
+}
+
+.bottle-main img{
+  width: 85%;
+  height: 85%;
+}
+
+.img-history{
+  width: 5rem;
+  height: 5rem;
+}
+
+.img-exit{
+  width: 3rem;
+  height: 3rem;
+}
+
 footer{
   position: absolute;
-  margin-bottom: 1px;
+  bottom: 0;
   display: flex;
-  align-items: flex-end;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  background-color: #ffcd3c;
 }
+
 
 .container{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin: 2rem 3rem;
+  padding: 0;
 }
 
 .main-img {
+  height: 40vh;
+}
+
+.img{
   height: 45vh;
+}
+.login{
+  font-size: 1rem;
+  width: 100%;
+  border: 1px solid #35d0ba;
+  border-radius: 5px;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.history{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+
+}
+
+.arrow-left {
+align-self: flex-start;
+  background-color: #35d0ba;
+  -webkit-clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+  clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+}
+
+.arrow-left a {
+  color: #35d0ba;
+  font-size: 1.3rem;
 }
 
 .alert {

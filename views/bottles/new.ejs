@@ -1,12 +1,16 @@
-<h2>Add a message</h2>
+<div class="container"> 
+  <h3>Add a message</h3>
 
-<form action="/bottles" method="post">
-  <div class="form-row">
-    <label for="">This is your bottle..</label>
-    <textarea id="content" name="content" rows="5" cols="50" placeholder="Your message here"></textarea>
-  </div> 
-  <input type="submit" value="add">
-</form>
-
-<div><a href="/bottles">Back</a></div>
-<a href="/logout">Logout</a>
+  <form action="/bottles" method="post">
+    <div class="form-row">
+      <p>You are alone in a desert island and the only way to communicate is writing messages in a bottle like this one...</p>
+      <textarea id="content" name="content" rows="17" cols="30" class="login" placeholder="Your message here"></textarea>
+    </div> 
+    <input type="submit" value="add" class="btn-login">
+  </form>
+  <p></p>
+<div class="history">
+  <div class="arrow-left "><a href="/">AAA</a></div>
+  <a href="logout"><img src="/images/exit.png" class="img-exit" alt="exit"></a>
+  </div>
+</div>

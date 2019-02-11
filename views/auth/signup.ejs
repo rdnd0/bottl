@@ -1,14 +1,20 @@
-<form id="form" action="/signup" method="POST">
-  <label for="username">Username</label><br>
-  <input type="text" name="username" placeholder="Your username" required>
-
-  <label for="password">Password</label><br>
-  <input type="password" name="password" placeholder="********" required>
+<div class="container">
+<form action="/signup" method="POST" id="form">
+  
+  <h2>Sign Up</h2>
+  <a href="/"><img src="/images/wilson.png" class="img" alt="wilson"></a>
+  <div class="login-box"> 
+    <input class="login" type="text" name="username" placeholder="user name">
+  <div class="pass">
+    <input class="login" type="password" name="password" placeholder="password">
+  </div>
   <% if (errorMessage) { %>
-    <div class="error-message">
-      <%= errorMessage %>
-    </div>
+    <div class="error-message"><%= errorMessage %></div>
   <% } %>
-  <button type="submit">Create account</button>
+    <button class="btn-login">Save this</button>
+  </div>
+  <p class="btns-secondary">
+</p>
 </form>
-<div><a href="/">Back</a></div>
+<div class="arrow-left "><a href="/">AAA</a></div>
+</div>

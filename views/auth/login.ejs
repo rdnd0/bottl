@@ -1,20 +1,21 @@
+<div class="container">
 <form action="/login" method="POST" id="form">
+  
   <h2>Login</h2>
-
-  <label for="username">Username</label>
-  <input type="text" name="username" placeholder="volleyball" required>
-
-  <label for="password">Password</label>
-  <input type="password" name="password" placeholder="wilson" required>
-
+  <a href="/"><img src="/images/wilson.png" class="img" alt="wilson"></a>  
+  <div class="login-box"> 
+    <input class="login" type="text" name="username" placeholder="user name">
+  <div class="pass">
+    <input class="login" type="password" name="password" placeholder="password">
+  </div>
   <% if (errorMessage) { %>
     <div class="error-message"><%= errorMessage %></div>
   <% } %>
-
-  <button>Sign in</button>
-
-  <p class="account-message">
-    Don't have an account? <a href="/signup">Sign up</a>
+    <button class="btn-login">Let's Go!</button>
+  </div>
+  <p class="btns-secondary">
+    No account yet? <a href="/signup">Sign up</a>
   </p>
 </form>
-<div><a href="/">Back</a></div>
+<div class="arrow-left "><a href="/">AAA</a></div>
+</div>
