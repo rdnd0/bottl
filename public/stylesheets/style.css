@@ -1,14 +1,40 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
 }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 3rem;
+  padding: 0;
+  font: 14px "Roboto", Helvetica, Arial, sans-serif;
+}
+
 
 a {
   color: #00B7FF;
 }
 
-.img {
-  height: 8rem;
+h1{
+  font-family: 'Bahiana', cursive;
+  font-size: 7rem;
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-img {
+  height: 45vh;
 }
 
 .alert {
