@@ -40,6 +40,10 @@ h3{
   padding: 0;
 }
 
+.h3-history{
+  margin-bottom: 1rem;
+}
+
 .btn-login{
   background-color: #35d0ba;
   padding: 0.7rem 2rem;
@@ -81,8 +85,8 @@ grid-template-columns: 200px;
 }
 
 .bottle-main img{
-  width: 85%;
-  height: 85%;
+  width: 83%;
+  height: 83%;
 }
 
 .img-history{
@@ -93,6 +97,14 @@ grid-template-columns: 200px;
 .img-exit{
   width: 3rem;
   height: 3rem;
+}
+
+.img-inst{
+  height: 35vh;
+}
+
+.exit-pos{
+  margin-right: 0.8rem;
 }
 
 footer{
@@ -120,7 +132,7 @@ footer{
 }
 
 .img{
-  height: 45vh;
+  height: 42vh;
 }
 .login{
   font-size: 1rem;
@@ -134,9 +146,11 @@ footer{
 .history{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: baseline;
   width: 100%;
+  position: absolute;
+  bottom: 1.5rem;
 
 }
 
@@ -171,6 +185,7 @@ align-self: flex-start;
   color: black;
 }
 
+
 .answer-box {
   height: 220px;
   overflow: auto;
@@ -200,17 +215,18 @@ align-self: flex-start;
 
 .msg-box{
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  height: 63.8vh;
+  overflow: auto;
+  margin-bottom: 1.3rem;
   
 }
 
-.msg-box a{
+.history-link{
   text-decoration: none;
   margin: 0.2rem 0;
   color: black;
   background-color: #35d0ba;
   border-radius: 10px;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.1rem 0.5rem;
   max-height: 2rem;
 }

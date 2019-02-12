@@ -6,3 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   }
 });
+
+const myLink = document.querySelectorAll('.history-link');
+
+myLink.forEach(link => {
+    $clamp(link, {clamp: 1});
+})

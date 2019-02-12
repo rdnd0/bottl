@@ -1,10 +1,17 @@
+<div class="container">
 <h3>History detail</h3>
 
-<ul>
-  <% bottles.forEach((bottle) => { %>
-  <li><%= bottle.content %></li>
-  <% }) %>  
-</ul>
+<div class="msg-box answer-box">
 
-<div><a href="/bottles/history">Back</a></div>
-<a href="/logout">Logout</a>
+  <% bottles.forEach((bottle) => { %>
+  <p id="user-li"><%= bottle.sender %></p>
+  <p><%= bottle.content %></p>
+  <% }) %>  
+
+</div>
+
+<div class="history">
+  <div class="arrow-left "><a href="/bottles/history">AAA</a></div>
+  <a href="../logout"><img src="/images/exit.png" class="img-exit" alt="exit"></a>
+  </div>
+</div>
