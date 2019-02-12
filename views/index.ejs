@@ -6,11 +6,12 @@
     <% if (!currentUser) {%>
       <div class="btns-box">
         <a href="login" class="btn-login">Login</a>
-        <div class="btns-secondary">
-          <a href="signup">Sign up</a>
-          <a href="instructions">Instructions</a>
+        <a href="signup" class="link-color singup-btc">Sign up</a>
         </div>
-      </div>
+        <div class="btns-secondary">
+          <a href="instructions" class="link-color">Instructions</a>
+        </div>
+      
     <%} else { %>
       <a href="logout">Logout</a>
     <%}%>
