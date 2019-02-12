@@ -62,10 +62,19 @@ app.use((req, res, next) => {
   app.locals.currentUser = req.session.currentUser;
   next();
 });
+
 app.use((req, res, next) => {
+  
   Bottle.find().sort({thread: -1}).limit(1)
     .then((message) => {
-      res.locals.currentThread = message[0].thread;
+      console.log('this is the message ', message);
+      if (message.length !== 0) { 
+        console.log('this is the message2 ', message);
+        res.locals.currentThread = message[0].thread;
+      } else {
+        console.log('this is the message3 ', message);
+        res.locals.currentThread = 0;
+        }
       next();
     })
     .catch((error) => {

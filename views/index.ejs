@@ -1,22 +1,21 @@
-
-<div class="container"> 
-<h1>Bottl</h1>
-<p>Send your messages around the world</p>
-<img src="images/main-logo-notxt.png" alt="bottle" class="main-img">
-<div> 
-<% if (!currentUser) {%>
-<div class="btns-box"> 
-<a href="login" class="btn-login">Login</a>
-<div class="btns-secondary"> 
-<a href="signup">Sign up</a>
-<a href="instructions">Instructions</a>
+<div class="container">
+  <h1>Bottl</h1>
+  <p>Send your messages around the world</p>
+  <img src="images/main-logo-notxt.png" alt="bottle" class="main-img">
+  <div>
+    <% if (!currentUser) {%>
+      <div class="btns-box">
+        <a href="login" class="btn-login">Login</a>
+        <div class="btns-secondary">
+          <a href="signup">Sign up</a>
+          <a href="instructions">Instructions</a>
+        </div>
+      </div>
+    <%} else { %>
+      <a href="logout">Logout</a>
+    <%}%>
+  </div>
 </div>
-</div>
-<%} else { %>
-<a href="logout">Logout</a>
-<%}%>
-</div>
-</div>
-<footer> 
-<p class="footer">Made with love at IronHack</p>
+<footer>
+  <p class="footer">Made with love at IronHack</p>
 </footer>
