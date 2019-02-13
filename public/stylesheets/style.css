@@ -164,10 +164,24 @@ footer{
 
 .alert {
   position: fixed;
-  top: 0px;
+  top: 0.2rem;
   width: 100%;
   padding: 0.5rem 1rem;
   border: 1px solid grey;
+  animation-name: slide;
+  animation-duration: 1s;
+  animation-fill-mode: ease;
+
+}
+
+@keyframes slide{
+ from{
+   transform: translateX(200px);
+ }
+ to{
+   transform: translateX(0);
+  }
+
 }
 
 .alert-danger {
