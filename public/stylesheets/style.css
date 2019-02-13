@@ -15,10 +15,6 @@ body {
 }
 
 
-a {
-  color: #00B7FF;
-}
-
 h1{
   font-family: 'Bahiana', cursive;
   font-size: 7rem;
@@ -86,11 +82,6 @@ grid-template-columns: 200px;
  text-align: center;
 }
 
-.bottle-main img{
-  width: 83%;
-  height: 83%;
-}
-
 .img-history{
   height: 9rem;
 }
@@ -137,8 +128,15 @@ footer{
 }
 
 .img{
-  height: 42vh;
+  width: 83%;
+  height: 83%;
 }
+
+.img-btl{
+  height: 36vh;
+}
+
+
 .login{
   font-size: 1rem;
   width: 100%;
@@ -226,4 +224,44 @@ footer{
   border-radius: 10px;
   padding: 0.5rem 0.5rem 0.1rem 0.5rem;
   max-height: 2rem;
+}
+
+.help{
+  height: 2.5rem;
+  margin-top: 1rem;
+  position: absolute;
+  align-self: flex-end;
+}
+
+.help-small{
+  position: absolute;
+  align-self: flex-start;
+  height: 2.5rem;
+  left: 8vw;
+}
+
+.bottle-detail{
+  display: flex;
+  flex-direction: column;
+}
+
+.help-text{
+  width: 50vw;
+  margin-top: 2.1rem;
+  background-color: rgb(207, 204, 204);
+  color: black;
+  position: absolute;
+  align-self: center;
+  display: none;
+  border-radius: 10px;
+  text-align: left;
+  padding: 0.5rem;
+}
+
+.help3{
+  align-self: auto;
+}
+
+.hide{
+  display: initial;
 }
