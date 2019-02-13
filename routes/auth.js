@@ -24,31 +24,34 @@ router.post('/signup', (req, res, next) => {
     username,
     password
   } = req.body;
-
+ 
   if (username === '' || password === '') {
     req.flash('error', 'dude, empty fields but why?');
     res.redirect('/signup');
   } else {
-    User.findOne({
+    return User.findOne({
         username
       })
       .then((user) => {
         if (!user) {
           const salt = bcrypt.genSaltSync(bcryptSalt);
           const hashPass = bcrypt.hashSync(password, salt);
-          User.create({
-              username,
-              password: hashPass
-            })
-            .then(() => {
-              req.flash('success', 'castaway created correctly');
+          const newUser = new User( {
+            username,
+            password: hashPass
+          })
+          return newUser.save()
+            .then((data) => {
+              console.log(data)
+              req.session.currentUser = data;
+              req.flash('success', 'you are in sailor');
               res.redirect('/bottles');
             })
             .catch((error) => {
               next(error);
             });
         } else {
-          req.flash('error', 'incorrect');
+          req.flash('error', 'please try a different user name');
           res.redirect('/signup');
         }
       })
@@ -56,7 +59,7 @@ router.post('/signup', (req, res, next) => {
         next(error);
       });
   }
-});
+ });
 
 // GET login page
 
