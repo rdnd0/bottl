@@ -12,6 +12,12 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  location: {
+    type: {
+      type: String
+    },
+    coordinates: [Number]
+  },
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);

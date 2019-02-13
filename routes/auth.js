@@ -22,7 +22,8 @@ router.get('/signup', protect.loggedIn, (req, res, next) => {
 router.post('/signup', (req, res, next) => {
   const {
     username,
-    password
+    password,
+    location
   } = req.body;
  
   if (username === '' || password === '') {
@@ -36,13 +37,17 @@ router.post('/signup', (req, res, next) => {
         if (!user) {
           const salt = bcrypt.genSaltSync(bcryptSalt);
           const hashPass = bcrypt.hashSync(password, salt);
+          const latLng = location.split(',');
           const newUser = new User( {
             username,
-            password: hashPass
+            password: hashPass,
+            location: {
+              type: "Point",
+              coordinates: [latLng[1],latLng[0]]
+            }
           })
           return newUser.save()
             .then((data) => {
-              console.log(data)
               req.session.currentUser = data;
               req.flash('success', 'you are in sailor');
               res.redirect('/bottles');

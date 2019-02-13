@@ -18,6 +18,8 @@ const qAnswer = document.getElementById('q-answer');
 const qNew = document.getElementById('q-bottle');
 const qHistory = document.getElementById('q-history');
 
+if (qAnswer === null || qNew === null || qHistory === null) {
+} else { 
 qAnswer.addEventListener('click', () => {
   const help1 = document.querySelector('.help1');
   help1.classList.toggle("hide");
@@ -32,3 +34,5 @@ qHistory.addEventListener('click', () => {
   const help3 = document.querySelector('.help3');
   help3.classList.toggle('hide');
 })
+
+}

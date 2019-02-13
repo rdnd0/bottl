@@ -1,7 +1,7 @@
 
 <div class="container"> 
 <h3 class="h3-history">Your bottle's trip</h3>
-<div class="msg-box login">
+<div class="msg-box">
   <% bottles.forEach((bottle) => { %>
   <a class="history-link" href="/bottles/history/<%= bottle.thread %>"><%= bottle.content %></a>
   <% }) %>  

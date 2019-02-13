@@ -89,7 +89,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Express layouts setup
 app.use(expressLayouts);
 app.set('layout', 'layouts/layout');
-
+app.set("layout extractScripts", true)
 // Routes setup
 
 

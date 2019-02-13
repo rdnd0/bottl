@@ -4,6 +4,7 @@ const Bottle = require('../models/bottle');
 const protect = require('../middlewares/protectedView')
 
 const router = express.Router();
+require("dotenv").config();
 
 router.get('/', protect.notLoggedIn, (req, res, next) => {
   res.render('bottles/bottles')
@@ -126,4 +127,10 @@ router.get('/history/:id', protect.notLoggedIn, (req, res, next) => {
           .catch(next)
         });
 
+
+  router.get('/map', protect.notLoggedIn, (req, res, next) => {
+    console.log("asdasdasd");
+      res.render("bottles/map" , {token: process.env.MAPBOX});
+
+  })
     module.exports = router;
