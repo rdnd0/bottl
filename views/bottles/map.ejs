@@ -1,4 +1,9 @@
 <div id='map'></div>
+<div class="history">
+  <a href="/bottles/history" class="link-color map-btn">Back</a>
+
+</div>
+
 <script>
    mapboxgl.accessToken = <%-`"${token}"`%>;
    const map = new mapboxgl.Map({
@@ -7,10 +12,13 @@
       center: [2.154007, 41.390205],
       zoom: 3
    });
-new mapboxgl.Marker({anchor: 'center', color:'#f8683f'})
-.setLngLat([2.154007, 41.390205])
-.addTo(map); 
-new mapboxgl.Marker({anchor: 'center', color:'#f8683f'})
-.setLngLat([2.154007, 44.390205])
-.addTo(map);   
+
+ 
+   <% bottles.forEach((bottle) => { %>
+   new mapboxgl.Marker({anchor: 'center', color:'#f8683f'})
+   .setLngLat([<%= bottle.senderId.location.coordinates %>]).addTo(map);
+   <% }) %> 
+
+   
+
 </script>

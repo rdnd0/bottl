@@ -301,3 +301,11 @@ footer{
 .map-lnk{
   margin-top: 3.3rem;
 }
+
+.map-btn{
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #f8683f;
+  text-decoration: none;
+  color: black;
+}

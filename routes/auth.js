@@ -43,7 +43,7 @@ router.post('/signup', (req, res, next) => {
             password: hashPass,
             location: {
               type: "Point",
-              coordinates: [latLng[1],latLng[0]]
+              coordinates: [latLng[0],latLng[1]]
             }
           })
           return newUser.save()
