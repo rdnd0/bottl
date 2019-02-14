@@ -48,6 +48,18 @@ router.post('/', protect.notLoggedIn, (req, res, next) => {
   }
 })
 
+router.get('/answer/:id/map', protect.notLoggedIn, (req, res, next) => {
+  const { id } = req.params;
+  Bottle.find({
+    thread: id
+  })
+  .populate('senderId')
+  .then((bottles) => {
+    res.render("bottles/map" , { bottles , token: process.env.MAPBOX });
+    })
+  .catch(next)
+});
+
 router.get('/answer', protect.notLoggedIn, (req, res, next) => {
   const thread = res.locals.currentThread;
   const randomThread = Math.floor(Math.random() * thread) + 1;
@@ -63,6 +75,8 @@ router.get('/answer', protect.notLoggedIn, (req, res, next) => {
     })
     .catch(next)
 });
+
+
 
 
 router.post('/answer', protect.notLoggedIn, (req, res, next) => {

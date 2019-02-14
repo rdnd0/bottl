@@ -25,7 +25,7 @@ router.post('/signup', (req, res, next) => {
     password,
     location
   } = req.body;
- 
+
   if (username === '' || password === '') {
     req.flash('error', 'dude, empty fields but why?');
     res.redirect('/signup');
@@ -37,13 +37,18 @@ router.post('/signup', (req, res, next) => {
         if (!user) {
           const salt = bcrypt.genSaltSync(bcryptSalt);
           const hashPass = bcrypt.hashSync(password, salt);
-          const latLng = location.split(',');
-          const newUser = new User( {
+          console.log(location);
+          if (location){
+            var latLng = location.split(',');
+          } else {
+            var latLng = [-40.348419, 34.871207]
+          }
+          const newUser = new User({
             username,
             password: hashPass,
             location: {
               type: "Point",
-              coordinates: [latLng[0],latLng[1]]
+              coordinates: [latLng[0], latLng[1]]
             }
           })
           return newUser.save()
@@ -64,7 +69,7 @@ router.post('/signup', (req, res, next) => {
         next(error);
       });
   }
- });
+});
 
 // GET login page
 

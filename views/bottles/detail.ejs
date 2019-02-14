@@ -1,17 +1,24 @@
-<div class="container">
-<h3>History detail</h3>
+<div class="overall">
+  <div class="container">
+    <h3>History detail</h3>
 
-<div class="msg-box answer-box">
+    <div class="msg-box answer-box">
 
-  <% bottles.forEach((bottle) => { %>
-  <p id="user-li"><%= bottle.sender %></p>
-  <p><%= bottle.content %></p>
-  <% }) %>  
+      <% bottles.forEach((bottle) => { %>
+      <p id="user-li">
+        <%= bottle.sender %>
+      </p>
+      <p>
+        <%= bottle.content %>
+      </p>
+      <% }) %>
 
-</div>
-<a class='map-lnk' href="/bottles/history/<%= bottles[0].thread %>/map" ><img src="/images/map-icon.png" alt="map" class="img-map"></a>
-<div class="history">
-  <a href="/bottles/history" class="link-color">Back</a>
-  <a href="../logout" class="link-color">Logout</a>
-</div>
+    </div>
+    <a class='map-lnk' href="/bottles/history/<%= bottles[0].thread %>/map"><img src="/images/map-icon.png" alt="map"
+        class="img-map"></a>
+    <div class="history">
+      <a href="/bottles/history" class="link-color">Back</a>
+      <a href="../logout" class="link-color">Logout</a>
+    </div>
+  </div>
 </div>

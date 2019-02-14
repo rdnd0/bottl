@@ -1,15 +1,17 @@
+<div class="overall">
+  <div class="container">
+    <h3 class="h3-history">Your bottle's trip</h3>
+    <div class="msg-box">
+      <% bottles.forEach((bottle) => { %>
+      <a class="history-link" href="/bottles/history/<%= bottle.thread %>">
+        <%= bottle.content %></a>
+      <% }) %>
+    </div>
 
-<div class="container"> 
-<h3 class="h3-history">Your bottle's trip</h3>
-<div class="msg-box">
-  <% bottles.forEach((bottle) => { %>
-  <a class="history-link" href="/bottles/history/<%= bottle.thread %>"><%= bottle.content %></a>
-  <% }) %>  
+
+    <div class="history">
+      <a href="/bottles" class="link-color">Back</a>
+      <a href="../logout" class="link-color">Logout</a>
+    </div>
   </div>
-
-  
-<div class="history">
-  <a href="/bottles" class="link-color">Back</a>
-  <a href="../logout" class="link-color">Logout</a>
-</div>
 </div>

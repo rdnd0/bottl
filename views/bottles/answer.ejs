@@ -1,30 +1,35 @@
-<div class="container">
-<h3>New bottle found!</h3>
+<div class="overall">
+  <div class="container">
+    <h3>New bottle found!</h3>
 
 
-<div class="answer-box">
+    <div class="answer-box">
 
-  <% bottles.forEach((bottle) => { %>
-  <p id="user-li"><%= bottle.sender %></p>
-  <p><%= bottle.content %></p>
-  <% }) %>  
+      <% bottles.forEach((bottle) => { %>
+      <p id="user-li">
+        <%= bottle.sender %>
+      </p>
+      <p>
+        <%= bottle.content %>
+      </p>
+      <% }) %>
 
-</div>
+    </div>
 
 
-<form action="/bottles/answer" method="post">
-<div class="form-row">
-    <label for="">Your answer here..</label>
-    <input type="hidden" name="currentThread" value="<%= bottles[0].thread %>">
-    <textarea id="content" class="login" name="content" rows="7" cols="30" placeholder="..."></textarea>
-  </div> 
-  <input class="btn-login" type="submit" value="reply" >
-</form>
-<p></p>
-<a href="/bottles/answer/map"><img src="/images/map-icon.png" alt="map" class="img-map"></a>
-<div class="history">
-  <a href="/bottles" class="link-color">Back</a>
-  <a href="../logout" class="link-color">Logout</a>
-</div>
-</div>
+    <form action="/bottles/answer" method="post">
+      <div class="form-row">
+        <label for="">Your answer here..</label>
+        <input type="hidden" name="currentThread" value="<%= bottles[0].thread %>">
+        <textarea id="content" class="login" name="content" rows="5" cols="30" placeholder="..."></textarea>
+      </div>
+      <input class="btn-login" type="submit" value="reply">
+    </form>
+    <p></p>
+    <a href="/bottles/answer/<%= bottles[0].thread %>/map"><img src="/images/map-icon.png" alt="map" class="img-map"></a>
+    <div class="history">
+      <a href="/bottles" class="link-color">Back</a>
+      <a href="../logout" class="link-color">Logout</a>
+    </div>
+  </div>
 </div>
