@@ -177,7 +177,7 @@ footer{
 
 @keyframes slide{
  from{
-   transform: translateX(200px);
+   transform: translateX(500px);
  }
  to{
    transform: translateX(0);
@@ -263,7 +263,7 @@ footer{
 .help-text{
   width: 50vw;
   margin-top: 2.1rem;
-  background-color: rgb(207, 204, 204);
+  background-color: #fefed5;
   color: black;
   position: absolute;
   align-self: center;
