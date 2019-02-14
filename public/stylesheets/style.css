@@ -130,6 +130,7 @@ footer{
 .img{
   width: 83%;
   height: 83%;
+  align-self: center;
 }
 
 .img-btl{
@@ -278,4 +279,25 @@ footer{
 
 .hide{
   display: initial;
+}
+
+#form{
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+
+}
+
+.wilson{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-map{
+  height: 8vh;
+}
+
+.map-lnk{
+  margin-top: 3.3rem;
 }

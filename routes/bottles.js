@@ -24,13 +24,9 @@ router.post('/', protect.notLoggedIn, (req, res, next) => {
   const thread = res.locals.currentThread + 1;
   const isFirstMessage = true;
 
-  if({content:""}){
-    req.flash('error', 'please enter some text');
-    res.redirect('/bottles/new');
-
-  } else { 
-
-  Bottle.create({
+  if({content}){
+    
+    Bottle.create({
       senderId,
       sender,
       content,
@@ -42,6 +38,11 @@ router.post('/', protect.notLoggedIn, (req, res, next) => {
       res.redirect('/bottles');
     })
     .catch(next);
+
+  } else { 
+    
+    req.flash('error', 'please enter some text');
+    res.redirect('/bottles/new');
   }
 })
 
@@ -128,9 +129,17 @@ router.get('/history/:id', protect.notLoggedIn, (req, res, next) => {
         });
 
 
-  router.get('/map', protect.notLoggedIn, (req, res, next) => {
-    console.log("asdasdasd");
-      res.render("bottles/map" , {token: process.env.MAPBOX});
+  router.get('/history/:id/map', protect.notLoggedIn, (req, res, next) => {
+    const { id } = req.params;
+    Bottle.find({
+      thread: id
+    })
+    .populate('senderId')
+    .then((bottles) => {
+      console.log('bottle result ',bottles[0].senderId.location.coordinates);
+      res.render("bottles/map" , {token: process.env.MAPBOX, bottles});
+      })
+    .catch(next)
+  });
 
-  })
     module.exports = router;
