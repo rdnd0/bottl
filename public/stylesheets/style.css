@@ -62,9 +62,14 @@ grid-row-gap: 0.5rem;
 grid-template-columns: 200px;
 }
 
+.btn-box{
+  height: 150px;
+}
+
 .btns-secondary{
   text-align: center;
-  margin-top: 40px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .singup-btc{
@@ -104,7 +109,7 @@ grid-template-columns: 200px;
 }
 
 footer{
-  position: absolute;
+  position: fixed;
   bottom: 0;
   display: flex;
   justify-content: center;
@@ -113,6 +118,14 @@ footer{
   background-color: #ffcd3c;
 }
 
+.overall{
+  margin: 0 auto;
+  max-width: 375px;
+  max-height: 667px;
+  min-width: 320px;
+  min-height: 568px;
+
+}
 
 .container{
   display: flex;
@@ -153,8 +166,6 @@ footer{
   justify-content: space-around;
   align-items: baseline;
   width: 100%;
-  position: absolute;
-  bottom: 2rem;
 
 }
 
