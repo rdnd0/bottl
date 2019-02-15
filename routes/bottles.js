@@ -63,11 +63,11 @@ router.get('/answer/:id/mapanswer', protect.notLoggedIn, (req, res, next) => {
 router.get('/answer', protect.notLoggedIn, (req, res, next) => {
   const thread = res.locals.currentThread;
   const randomThread = Math.floor(Math.random() * thread) + 1;
+  const sort = {'timestamp': -1}
+
   Bottle.find({
       thread: randomThread
-    }).sort({
-      date: -1
-    })
+    }).sort( { date: -1 } )
     .then((bottles) => {
       res.render('bottles/answer', {
         bottles
@@ -118,7 +118,7 @@ router.get('/history', protect.notLoggedIn, (req, res, next) => {
       isFirstMessage: true,
       senderId: senderId
     }).sort({
-      date: -1
+      date: 1
     })
     .then((bottles) => {
       res.render('bottles/history', {
@@ -135,7 +135,7 @@ router.get('/history/:id', protect.notLoggedIn, (req, res, next) => {
       Bottle.find({
           thread: id
         }).sort({
-          date: -1
+          date: 1
         })
         .then((bottles) => {
             res.render('bottles/detail' , { bottles });

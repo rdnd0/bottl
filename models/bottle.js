@@ -11,13 +11,14 @@ const bottleSchema = new Schema({
   sender: String,
   content: String,
   thread: Number,
-  date: {type: Date,
-  default: Date.now()},
+  date: {
+    type: Date,
+    default: Date.now
+  },
   isFirstMessage : {
     type: Boolean,
     default: false,
   }
-
 });
 
 const Bottle = mongoose.model('Bottle', bottleSchema);
