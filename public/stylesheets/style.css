@@ -202,7 +202,7 @@ footer{
 }
 
 .alert-success {
-  background-color: #35d0ba;
+  background-color: #35d0b944;
   color: black;
 }
 
@@ -242,11 +242,16 @@ footer{
   
 }
 
+.relative{
+  position: relative;
+  padding-left: 1rem;
+}
+
 .history-link{
   text-decoration: none;
   margin: 0.2rem 0;
   color: black;
-  background-color: #35d0ba;
+  background-color: #35d0b944;
   border-radius: 10px;
   padding: 0.5rem 0.5rem 0.1rem 0.5rem;
   max-height: 2rem;
@@ -263,7 +268,7 @@ footer{
   position: absolute;
   align-self: flex-start;
   height: 2.5rem;
-  left: 8vw;
+  margin-right: 1rem;
 }
 
 .bottle-detail{

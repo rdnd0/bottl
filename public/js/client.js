@@ -17,9 +17,16 @@ myLink.forEach(link => {
 });
 const backMap = document.getElementById("button-click");
 
-backMap.addEventListener('click', () => {
-  window.history.back();
-});
+
+if (backMap === null) {} else {
+
+  backMap.addEventListener('click', () => {
+    window.history.back();
+  });
+
+
+}
+
 
 const qAnswer = document.getElementById('q-answer');
 const qNew = document.getElementById('q-bottle');
