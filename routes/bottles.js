@@ -48,14 +48,14 @@ router.post('/', protect.notLoggedIn, (req, res, next) => {
   }
 })
 
-router.get('/answer/:id/map', protect.notLoggedIn, (req, res, next) => {
+router.get('/answer/:id/mapanswer', protect.notLoggedIn, (req, res, next) => {
   const { id } = req.params;
   Bottle.find({
     thread: id
   })
   .populate('senderId')
   .then((bottles) => {
-    res.render("bottles/map" , { bottles , token: process.env.MAPBOX });
+    res.render("bottles/mapanswer" , { bottles , token: process.env.MAPBOX });
     })
   .catch(next)
 });

@@ -41,7 +41,7 @@ router.post('/signup', (req, res, next) => {
           if (location){
             var latLng = location.split(',');
           } else {
-            var latLng = [-40.348419, 34.871207]
+            var latLng = [-5.420315, 35.91268]
           }
           const newUser = new User({
             username,
