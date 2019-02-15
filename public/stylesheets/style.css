@@ -14,12 +14,24 @@ body {
   font: 16px "Roboto", Helvetica, Arial, sans-serif;
 }
 
+@media screen and (max-width:320px) {
+  body {
+      font-size: 14px !important;
+  }
+}
+
 
 h1{
   font-family: 'Bahiana', cursive;
   font-size: 7rem;
   margin: 0;
   padding: 0;
+}
+
+@media screen and (max-width:320px) {
+  h1 {
+      font-size: 5rem !important;
+  }
 }
 
 h2{
@@ -34,6 +46,12 @@ h3{
   font-size: 2.6rem;
   margin: 0;
   padding: 0;
+}
+
+@media screen and (max-width:320px) {
+  h3 {
+      font-size: 2.1rem !important;
+  }
 }
 
 .h3-history{
@@ -242,10 +260,8 @@ footer{
   
 }
 
-.relative{
-  position: relative;
-  padding-left: 1rem;
-}
+
+
 
 .history-link{
   text-decoration: none;
@@ -255,25 +271,31 @@ footer{
   border-radius: 10px;
   padding: 0.5rem 0.5rem 0.1rem 0.5rem;
   max-height: 2rem;
+  max-width: 19rem;
 }
 
 .help{
-  height: 2.5rem;
-  margin-top: 1rem;
   position: absolute;
   align-self: flex-end;
+  height: 2.5rem;
+  margin-top: 1rem;
 }
 
 .help-small{
   position: absolute;
   align-self: flex-start;
   height: 2.5rem;
-  margin-right: 1rem;
+  margin-left: -1rem;
 }
 
 .bottle-detail{
   display: flex;
   flex-direction: column;
+}
+
+.history-b-detail{
+  margin-top: -3.2rem;
+  margin-left: -1.5rem;
 }
 
 .help-text{
@@ -287,6 +309,11 @@ footer{
   border-radius: 10px;
   text-align: left;
   padding: 0.5rem;
+}
+
+.more-help{
+  margin-top: 1rem;
+  margin-left: -0.5rem;
 }
 
 .help3{
