@@ -257,6 +257,8 @@ footer{
   height: 63.8vh;
   overflow: auto;
   margin-bottom: 1.3rem;
+  max-height: 58vh;
+  min-height: 72vh;
   
 }
 
